@@ -5,7 +5,7 @@
   <title>Glitter & Thorn - Home</title>
   <style>
 
-    /* 1. Global Reset & Box Sizing (From Week 7) */
+    /* 1. Global Reset & Box Sizing */
     * {
       box-sizing: border-box;
     }
@@ -14,42 +14,49 @@
       margin: 0;
       padding: 0;
       background-color: #ffffff;
-      color: #222222;
-      font-family: "Times New Roman", Times, serif; /* Basic serif for draft vibe */
-      font-size: 18px; /* Slightly larger base font */
+      color: #111111;
+      font-family: "Courier New", Courier, monospace; /* Swapped to monospace for a raw, structural vibe */
+      font-size: 16px; 
     }
 
-    /* 2. Layout Container (1200px required by rubric) */
+    /* 2. Layout Container */
     .wrap {
       width: 1200px;
       margin: 0 auto;
     }
 
-    /* 3. Typography Hierarchy */
-    h1, h2, nav a, .btn {
-      font-family: "Trebuchet MS", Arial, sans-serif; /* Clean sans-serif for headings */
+    h1, h2, nav a, .btn, .tiers-label {
+      font-family: "Impact", "Arial Black", sans-serif; /* Heavy, bold headings */
       text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    /* 4. Header & Navigation */
+    /* 3. Header & Oversized Logo */
     header {
-      padding: 40px 0 20px;
+      padding: 60px 0;
       text-align: center;
+      border-bottom: 6px solid #111111;
     }
 
     header img {
-      height: 70px;
+      /* Made the logo absolutely massive as requested */
+      height: 400px; 
       width: auto;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
     }
 
+    /* 4. Navigation */
     nav {
-      padding-bottom: 30px;
+      border-bottom: 6px solid #111111;
+      background-color: #111111;
     }
 
     nav ul {
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 15px 0;
       text-align: center;
     }
 
@@ -57,208 +64,225 @@
        display: inline-block;
     }
 
-    /* 5. Link States (Required by Rubric) */
     nav a:link, nav a:visited {
       display: inline-block;
-      padding: 10px 20px;
-      font-size: 0.85em;
-      font-weight: bold;
-      letter-spacing: 0.1em;
+      padding: 10px 30px;
+      font-size: 1.2em;
+      color: #ffffff;
       text-decoration: none;
-      color: #222222;
     }
 
     nav a:hover, nav a:active {
       color: #b01010;
-      text-decoration: underline;
+      background-color: #ffffff;
     }
 
-    /* 6. Hero Section (CSS Grid using percentages) */
+    /* 5. Hero Section */
     .hero-grid {
       display: grid;
       grid-template-columns: 50% 50%;
-      gap: 40px;
-      margin-bottom: 60px;
+      border-bottom: 6px solid #111111;
     }
 
     .hero-text {
-      padding: 40px 20px 40px 0;
+      padding: 60px 40px;
+      border-right: 6px solid #111111;
     }
 
     .hero-welcome {
-      font-size: 1.1em;
+      font-weight: bold;
       color: #b01010;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      text-transform: uppercase;
     }
 
     .hero-text h1 {
-      font-size: 4em;
-      font-weight: bold;
-      line-height: 1;
-      margin: 0 0 20px;
+      font-size: 5em;
+      line-height: 0.9;
+      margin: 0 0 30px;
+      color: #111111;
     }
 
     .hero-text p {
       font-size: 1.2em;
-      color: #555555;
-      margin: 0 0 35px;
-      line-height: 1.5;
+      margin: 0 0 40px;
+      line-height: 1.4;
     }
 
-    /* Button Styling */
     .btn:link, .btn:visited {
       display: inline-block;
       background-color: #b01010;
       color: #ffffff;
       text-decoration: none;
-      padding: 15px 35px;
-      font-size: 0.85em;
-      font-weight: bold;
-      letter-spacing: 0.1em;
+      padding: 20px 40px;
+      font-size: 1.2em;
+      border: 3px solid #111111;
     }
 
     .btn:hover, .btn:active {
-      background-color: #222222;
+      background-color: #ffffff;
+      color: #b01010;
     }
 
-    /* Standard Image Handling (No object-fit) */
-    .responsive-img {
+    .hero-img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
     }
 
-    /* 7. Intro Strip */
+    /* 6. Scrolling Banner (Replaces the basic intro strip) */
     .intro {
-      padding: 30px 0;
-      text-align: center;
-      background-color: #f9f9f9; /* Added a light background to separate sections instead of borders */
-      margin-bottom: 60px;
-    }
-
-    .intro p {
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: 0.85em;
+      padding: 20px 0;
+      background-color: #b01010;
+      color: #ffffff;
+      border-bottom: 6px solid #111111;
       font-weight: bold;
-      color: #b01010;
-      letter-spacing: 0.1em;
+      font-size: 1.2em;
       text-transform: uppercase;
-      margin: 0;
+      overflow: hidden;
+      white-space: nowrap;
     }
 
-    /* 8. Tiers / Collection (3-column grid) */
+    /* 7. All Images In One Line (Horizontal Scroll) */
     .tiers {
-      margin-bottom: 80px;
+      padding: 60px 0;
+      border-bottom: 6px solid #111111;
     }
 
     .tiers-label {
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: 1em;
-      font-weight: bold;
-      color: #b01010;
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 30px;
+      font-size: 2.5em;
+      color: #111111;
+      margin-bottom: 40px;
     }
 
-    .tier-grid {
-      display: grid;
-      grid-template-columns: 33.33% 33.33% 33.33%;
+    .tier-scroll-container {
+      /* This forces all items into one single horizontal line */
+      display: flex;
+      overflow-x: auto;
       gap: 30px;
+      padding-bottom: 20px;
+    }
+
+    .tier-card {
+      /* Prevents the cards from shrinking so they stay in a line */
+      flex: 0 0 380px; 
+      border: 4px solid #111111;
+      background-color: #f4f4f4;
+    }
+
+    .tier-card img {
+      display: block;
+      width: 100%;
+      height: 400px;
+      border-bottom: 4px solid #111111;
     }
 
     .tier-info {
-      padding: 15px 0;
-      text-align: center;
+      padding: 20px;
     }
 
     .tier-info h2 {
-      font-size: 1.2em;
-      margin: 0 0 10px;
-    }
-
-    .tier-info p {
-      color: #555555;
-      font-style: italic;
+      font-size: 1.8em;
       margin: 0 0 10px;
     }
 
     .tier-price {
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: 1.1em;
+      font-size: 1.4em;
       font-weight: bold;
+      background-color: #111111;
+      color: #ffffff;
+      display: inline-block;
+      padding: 5px 15px;
+      margin-top: 10px;
     }
 
     .tier-price span {
       color: #b01010;
       font-size: 0.8em;
-      font-weight: normal;
     }
 
-    /* 9. About Section */
+    /* 8. About Section */
+    .about {
+      padding: 80px 0;
+    }
+
     .about-grid {
       display: grid;
       grid-template-columns: 50% 50%;
-      gap: 50px;
-      margin-bottom: 80px;
       align-items: center;
+      gap: 60px;
     }
 
     .about-text h2 {
-      font-size: 2.5em;
+      font-size: 4em;
       margin: 0 0 20px;
     }
 
     .about-text p {
+      font-size: 1.2em;
       line-height: 1.6;
-      color: #444444;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .about-text a:link, .about-text a:visited {
-       color: #b01010;
+       color: #ffffff;
+       background-color: #111111;
+       padding: 2px 8px;
        font-weight: bold;
        text-decoration: none;
     }
 
     .about-text a:hover, .about-text a:active {
-      text-decoration: underline;
+      background-color: #b01010;
     }
 
-    /* 10. Footer */
+    .responsive-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 6px solid #111111;
+    }
+
+    /* 9. Footer & Massive Logo */
     footer {
-      background-color: #222222;
+      background-color: #111111;
       color: #ffffff;
-      padding: 50px 0;
+      padding: 80px 0;
       text-align: center;
+      border-top: 10px solid #b01010;
     }
 
     footer img {
-      height: 50px;
-      margin-bottom: 20px;
+      /* Massive footer logo */
+      height: 350px; 
+      margin-bottom: 40px;
     }
 
     .footer-links {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .footer-links a:link, .footer-links a:visited {
-      color: #aaaaaa;
+      color: #ffffff;
       text-decoration: none;
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: 0.8em;
+      font-size: 1.2em;
       font-weight: bold;
       text-transform: uppercase;
-      margin: 0 15px;
+      margin: 0 20px;
+      border: 2px solid #ffffff;
+      padding: 10px 20px;
     }
 
     .footer-links a:hover, .footer-links a:active {
-      color: #ffffff;
+      color: #111111;
+      background-color: #b01010;
+      border-color: #b01010;
     }
 
     .footer-contact {
       margin: 10px 0;
-      color: #888888;
+      font-size: 1.2em;
     }
 
     .footer-contact a:link, .footer-contact a:visited {
@@ -267,11 +291,10 @@
     }
 
     .footer-copy {
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      font-size: 0.7em;
+      font-size: 0.9em;
       color: #666666;
-      margin-top: 30px;
-      letter-spacing: 0.05em;
+      margin-top: 50px;
+      text-transform: uppercase;
     }
 
   </style>
@@ -300,14 +323,14 @@
       <div class="hero-grid">
 
         <div class="hero-text">
-          <p class="hero-welcome">Welcome to Glitter and Thorn</p>
-          <h1>Love Better.</h1>
+          <p class="hero-welcome">System Online</p>
+          <h1>LOVE BETTER.</h1>
           <p>Handmade eternal and fresh rose bouquets.<br>Kitchener, Waterloo and the GTA.</p>
           <a href="bouquets.html" class="btn">Shop Bouquets</a>
         </div>
 
         <div>
-          <img src="images/hero.jpg" alt="Glitter and Thorn luxury rose bouquet" class="responsive-img">
+          <img src="images/hero.jpg" alt="Glitter and Thorn luxury rose bouquet" class="responsive-img" style="border: none;">
         </div>
 
       </div>
@@ -316,43 +339,44 @@
 
   <div class="intro">
     <div class="wrap">
-      <p>Free Pickup in Waterloo | GTA Delivery Available | DM @glitter.thorn to Order</p>
+      <marquee scrollamount="12">FREE PICKUP IN WATERLOO /// GTA DELIVERY AVAILABLE /// DM @GLITTER.THORN TO ORDER /// FREE PICKUP IN WATERLOO /// GTA DELIVERY AVAILABLE</marquee>
     </div>
   </div>
 
   <div class="tiers">
     <div class="wrap">
-      <p class="tiers-label">The Collection</p>
-      <div class="tier-grid">
+      <h2 class="tiers-label">The Collection</h2>
+      
+      <div class="tier-scroll-container">
 
         <div class="tier-card">
-          <img src="images/t1.jpg" alt="Starter bouquet from Glitter and Thorn" class="responsive-img">
+          <img src="images/t1.jpg" alt="Starter bouquet from Glitter and Thorn">
           <div class="tier-info">
-            <h2>Starter</h2>
+            <h2>STARTER</h2>
             <p>12 or 24 roses</p>
-            <p class="tier-price">From $35 <span>+ Glitter $10</span></p>
+            <p class="tier-price">From $35 <br><span>+ Glitter $10</span></p>
           </div>
         </div>
 
         <div class="tier-card">
-          <img src="images/t2.jpg" alt="Statement bouquet from Glitter and Thorn" class="responsive-img">
+          <img src="images/t2.jpg" alt="Statement bouquet from Glitter and Thorn">
           <div class="tier-info">
-            <h2>Statement</h2>
+            <h2>STATEMENT</h2>
             <p>36 or 48 roses</p>
-            <p class="tier-price">From $85 <span>+ Glitter $15</span></p>
+            <p class="tier-price">From $85 <br><span>+ Glitter $15</span></p>
           </div>
         </div>
 
         <div class="tier-card">
-          <img src="images/t3.jpg" alt="Grand bouquet from Glitter and Thorn" class="responsive-img">
+          <img src="images/t3.jpg" alt="Grand bouquet from Glitter and Thorn">
           <div class="tier-info">
-            <h2>Grand</h2>
+            <h2>GRAND</h2>
             <p>72 or 100 roses</p>
-            <p class="tier-price">From $140 <span>+ Glitter $25</span></p>
+            <p class="tier-price">From $140 <br><span>+ Glitter $25</span></p>
           </div>
         </div>
-
-      </div>
+        
+        </div>
     </div>
   </div>
 
@@ -361,9 +385,9 @@
       <div class="about-grid">
 
         <div class="about-text">
-          <h2>About</h2>
+          <h2>ABOUT</h2>
           <p>Glitter and Thorn is a handmade floral business out of Waterloo, Ontario. Every bouquet is built from scratch using premium eternal bridal roses.</p>
-          <p>Order on Instagram at <a href="https://www.instagram.com/glitter.thorn" target="_blank">@glitter.thorn</a> or email <a href="mailto:dagnihotri@uwaterloo.ca">dagnihotri@uwaterloo.ca</a>.</p>
+          <p>Order on Instagram at <a href="https://www.instagram.com/glitter.thorn" target="_blank">@GLITTER.THORN</a> or email <a href="mailto:dagnihotri@uwaterloo.ca">DAGNIHOTRI@UWATERLOO.CA</a>.</p>
         </div>
 
         <div>
@@ -386,7 +410,7 @@
       <p class="footer-contact"><a href="https://www.instagram.com/glitter.thorn" target="_blank">@glitter.thorn</a></p>
       <p class="footer-contact"><a href="mailto:dagnihotri@uwaterloo.ca">dagnihotri@uwaterloo.ca</a></p>
       <p class="footer-contact">647-549-2397</p>
-      <p class="footer-copy">(c) 2025 Glitter and Thorn - Waterloo, Ontario</p>
+      <p class="footer-copy">2025 Glitter and Thorn - Waterloo, Ontario</p>
     </div>
   </footer>
 

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <title>Glitter & Thorn - Add-Ons</title>
+  <style>
+
+    /* 1. Global Reset & Box Sizing */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #111111;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 16px; 
+    }
+
+    /* 2. Layout Container */
+    .wrap {
+      width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3, h4, nav a, th, .btn {
+      font-family: "Impact", "Arial Black", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* 3. Header & Oversized Logo */
+    header {
+      padding: 60px 0;
+      text-align: center;
+      border-bottom: 6px solid #111111;
+    }
+
+    header img {
+      height: 400px; 
+      width: auto;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* 4. Navigation */
+    nav {
+      border-bottom: 6px solid #111111;
+      background-color: #111111;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    nav li {
+       display: inline-block;
+    }
+
+    nav a:link, nav a:visited {
+      display: inline-block;
+      padding: 10px 30px;
+      font-size: 1.2em;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    nav a:hover, nav a:active {
+      color: #b01010;
+      background-color: #ffffff;
+    }
+
+    /* 5. Page Head */
+    .page-head {
+      padding: 60px 0;
+      border-bottom: 6px solid #111111;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .page-head h1 {
+      font-size: 5em;
+      margin: 0 0 20px;
+      color: #111111;
+    }
+
+    .page-head p {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    /* Scrolling Banner */
+    .intro {
+      padding: 20px 0;
+      background-color: #b01010;
+      color: #ffffff;
+      border-bottom: 6px solid #111111;
+      font-weight: bold;
+      font-size: 1.2em;
+      text-transform: uppercase;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    /* 6. Sections */
+    .category-section {
+      padding: 60px 0;
+      border-bottom: 6px solid #111111;
+    }
+
+    .category-section h2 {
+      font-size: 1.5em;
+      color: #b01010;
+      margin: 0 0 10px;
+    }
+
+    .category-section h3 {
+      font-size: 3.5em;
+      margin: 0 0 40px;
+      color: #111111;
+    }
+
+    /* The "One Line" Horizontal Scroll Container */
+    .scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 40px;
+      padding-bottom: 20px;
+    }
+
+    /* Image Gallery Cards */
+    .gallery-card {
+      flex: 0 0 400px;
+      border: 6px solid #111111;
+    }
+
+    .gallery-card img {
+      display: block;
+      width: 100%;
+      height: 400px;
+    }
+
+    /* Add-on Text Cards */
+    .addon-card {
+      flex: 0 0 350px;
+      border: 6px solid #111111;
+      background-color: #f4f4f4;
+      padding: 30px;
+    }
+
+    .addon-card h4 {
+      font-size: 2.2em;
+      margin: 0 0 15px;
+    }
+
+    .addon-price {
+      font-family: "Impact", "Arial Black", sans-serif;
+      font-size: 1.8em;
+      background-color: #111111;
+      color: #ffffff;
+      display: inline-block;
+      padding: 5px 15px;
+      margin-bottom: 20px;
+    }
+
+    .addon-card p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    /* 7. Brutalist Table */
+    .full-table {
+      padding: 80px 0;
+      background-color: #111111;
+      color: #ffffff;
+    }
+
+    .full-table h2 {
+      font-size: 1.5em;
+      color: #b01010;
+      margin: 0 0 10px;
+    }
+
+    .full-table h3 {
+      font-size: 3.5em;
+      margin: 0 0 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 6px solid #ffffff;
+      background-color: #222222;
+    }
+
+    th {
+      font-size: 1.5em;
+      padding: 20px;
+      text-align: left;
+      border: 4px solid #ffffff;
+      background-color: #b01010;
+      color: #ffffff;
+    }
+
+    td {
+      padding: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border: 4px solid #ffffff;
+    }
+
+    .td-price {
+      font-family: "Impact", "Arial Black", sans-serif;
+      font-size: 1.5em;
+    }
+
+    /* 8. Footer */
+    footer {
+      background-color: #111111;
+      color: #ffffff;
+      padding: 80px 0;
+      text-align: center;
+      border-top: 10px solid #b01010;
+    }
+
+    footer img {
+      height: 350px; 
+      margin-bottom: 40px;
+    }
+
+    .footer-links {
+      margin-bottom: 40px;
+    }
+
+    .footer-links a:link, .footer-links a:visited {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 20px;
+      border: 2px solid #ffffff;
+      padding: 10px 20px;
+    }
+
+    .footer-links a:hover, .footer-links a:active {
+      color: #111111;
+      background-color: #b01010;
+      border-color: #b01010;
+    }
+
+    .footer-contact {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+
+    .footer-contact a:link, .footer-contact a:visited {
+      color: #b01010;
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      font-size: 0.9em;
+      color: #666666;
+      margin-top: 50px;
+      text-transform: uppercase;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <img src="images/logo.png" alt="Glitter and Thorn">
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bouquets.html">Bouquets</a></li>
+        <li><a href="addons.html">Add-Ons</a></li>
+        <li><a href="contact.html">Order</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-head">
+    <div class="wrap">
+      <h1>ADD-ONS</h1>
+      <p>ALL ADD-ONS ARE PRICED INDIVIDUALLY AND ADDED TO YOUR BOUQUET TOTAL.</p>
+    </div>
+  </div>
+
+  <div class="intro">
+    <div class="wrap">
+      <marquee scrollamount="12">CUSTOMIZE YOUR ARRANGEMENT /// PREMIUM UPGRADES /// CUSTOMIZE YOUR ARRANGEMENT /// PREMIUM UPGRADES</marquee>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <div class="wrap">
+      <h2>EXAMPLES</h2>
+      <h3>INSPIRATION</h3>
+      <div class="scroll-container">
+        <div class="gallery-card"><img src="images/inspo1.jpg" alt="Fresh flower arrangements from Glitter and Thorn"></div>
+        <div class="gallery-card"><img src="images/inspo2.jpg" alt="Custom XO glitter rose bouquet from Glitter and Thorn"></div>
+        <div class="gallery-card"><img src="images/inspo3.jpg" alt="Bouquet with Hello Kitty plushie add-on from Glitter and Thorn"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <div class="wrap">
+      <h2>CATEGORY</h2>
+      <h3>ACCENTS</h3>
+      <div class="scroll-container">
+
+        <div class="addon-card">
+          <h4>BUTTERFLY</h4>
+          <div class="addon-price">$2.50</div>
+          <p>Silver butterfly sticker on the wrapping.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>SMALL CROWN</h4>
+          <div class="addon-price">$2</div>
+          <p>Small decorative crown placed on top.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>LARGE CROWN</h4>
+          <div class="addon-price">$5</div>
+          <p>Larger gold crown placed on top.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>CRYSTAL PINS</h4>
+          <div class="addon-price">$0.50 EACH</div>
+          <p>Individual pin accents added to the arrangement.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <div class="wrap">
+      <h2>CATEGORY</h2>
+      <h3>WRAPPING</h3>
+      <div class="scroll-container">
+
+        <div class="addon-card">
+          <h4>DESIGNER WRAP</h4>
+          <div class="addon-price">$3</div>
+          <p>Upgrade from standard to designer paper.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>KOREAN TISSUE</h4>
+          <div class="addon-price">$5</div>
+          <p>Soft tissue paper layer added inside the wrap.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>PEARL BOW</h4>
+          <div class="addon-price">$4</div>
+          <p>Pearl-accented bow tied on the ribbon.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>PEARL LINING</h4>
+          <div class="addon-price">$4</div>
+          <p>Pearl pins lining the inside of the wrap.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <div class="wrap">
+      <h2>CATEGORY</h2>
+      <h3>LUXURY</h3>
+      <div class="scroll-container">
+
+        <div class="addon-card">
+          <h4>BURN BOX</h4>
+          <div class="addon-price">$20</div>
+          <p>Round black box with black tissue lining.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>TIARA</h4>
+          <div class="addon-price">$7</div>
+          <p>Full-sized tiara placed on top of the bouquet.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>BANNER</h4>
+          <div class="addon-price">$12</div>
+          <p>Custom message banner tied into the arrangement.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>FAIRY LIGHTS</h4>
+          <div class="addon-price">$12</div>
+          <p>String lights woven into the bouquet.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <div class="wrap">
+      <h2>CATEGORY</h2>
+      <h3>PERSONALIZATION</h3>
+      <div class="scroll-container">
+
+        <div class="addon-card">
+          <h4>INITIAL CARD</h4>
+          <div class="addon-price">$20</div>
+          <p>Custom letter or number card made with glitter stickers.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>MONEY BOUQUET</h4>
+          <div class="addon-price">$20</div>
+          <p>Bills folded and arranged inside the bouquet.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="category-section">
+    <div class="wrap">
+      <h2>CATEGORY</h2>
+      <h3>GIFTS</h3>
+      <div class="scroll-container">
+
+        <div class="addon-card">
+          <h4>LARGE PLUSHIE</h4>
+          <div class="addon-price">$15</div>
+          <p>Large stuffed animal alongside the bouquet.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>SMALL PLUSHIE</h4>
+          <div class="addon-price">$7</div>
+          <p>Small stuffed animal tucked into the arrangement.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>FERRERO ROCHER</h4>
+          <div class="addon-price">$3</div>
+          <p>Single chocolate on a clear stick inside the bouquet.</p>
+        </div>
+
+        <div class="addon-card">
+          <h4>CUSTOM TOPPER</h4>
+          <div class="addon-price">$8</div>
+          <p>Personalized printed topper on the arrangement.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="full-table">
+    <div class="wrap">
+      <h2>ALL ADD-ONS</h2>
+      <h3>QUICK REFERENCE</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ADD-ON</th>
+            <th>PRICE</th>
+            <th>NOTES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BUTTERFLY</td>
+            <td class="td-price">$2.50</td>
+            <td>SILVER ACCENT STICKER</td>
+          </tr>
+          <tr>
+            <td>SMALL CROWN</td>
+            <td class="td-price">$2</td>
+            <td>SITS ON TOP</td>
+          </tr>
+          <tr>
+            <td>LARGE CROWN</td>
+            <td class="td-price">$5</td>
+            <td>SITS ON TOP</td>
+          </tr>
+          <tr>
+            <td>CRYSTAL PINS</td>
+            <td class="td-price">$0.50 EACH</td>
+            <td>INDIVIDUAL ACCENTS</td>
+          </tr>
+          <tr>
+            <td>PEARL LINING</td>
+            <td class="td-price">$4</td>
+            <td>PINS LINING INSIDE WRAP</td>
+          </tr>
+          <tr>
+            <td>PEARL BOW</td>
+            <td class="td-price">$4</td>
+            <td>TIED ON RIBBON</td>
+          </tr>
+          <tr>
+            <td>DESIGNER WRAPPING</td>
+            <td class="td-price">$3</td>
+            <td>UPGRADE FROM STANDARD</td>
+          </tr>
+          <tr>
+            <td>KOREAN TISSUE</td>
+            <td class="td-price">$5</td>
+            <td>INNER TISSUE LAYER</td>
+          </tr>
+          <tr>
+            <td>CUSTOM TOPPER</td>
+            <td class="td-price">$8</td>
+            <td>PERSONALIZED TOPPER</td>
+          </tr>
+          <tr>
+            <td>INITIAL / NUMBER</td>
+            <td class="td-price">$20</td>
+            <td>GLITTER STICKER CARD</td>
+          </tr>
+          <tr>
+            <td>MONEY BOUQUET</td>
+            <td class="td-price">$20</td>
+            <td>BILLS FOLDED INTO ARRANGEMENT</td>
+          </tr>
+          <tr>
+            <td>BANNER</td>
+            <td class="td-price">$12</td>
+            <td>CUSTOM MESSAGE BANNER</td>
+          </tr>
+          <tr>
+            <td>FAIRY LIGHTS</td>
+            <td class="td-price">$12</td>
+            <td>STRING LIGHTS WOVEN IN</td>
+          </tr>
+          <tr>
+            <td>TIARA</td>
+            <td class="td-price">$7</td>
+            <td>FULL TIARA ON BOUQUET</td>
+          </tr>
+          <tr>
+            <td>BURN BOX</td>
+            <td class="td-price">$20</td>
+            <td>ROUND BLACK BOX + TISSUE</td>
+          </tr>
+          <tr>
+            <td>SMALL PLUSHIE</td>
+            <td class="td-price">$7</td>
+            <td>STUFFED ANIMAL</td>
+          </tr>
+          <tr>
+            <td>LARGE PLUSHIE</td>
+            <td class="td-price">$15</td>
+            <td>LARGER STUFFED ANIMAL</td>
+          </tr>
+          <tr>
+            <td>FERRERO ROCHER</td>
+            <td class="td-price">$3</td>
+            <td>SINGLE CHOCOLATE ON CLEAR STICK</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <img src="images/logo.png" alt="Glitter and Thorn">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="bouquets.html">Bouquets</a>
+        <a href="addons.html">Add-Ons</a>
+        <a href="contact.html">Order</a>
+      </div>
+      <p class="footer-contact"><a href="https://www.instagram.com/glitter.thorn" target="_blank">@GLITTER.THORN</a></p>
+      <p class="footer-contact"><a href="mailto:dagnihotri@uwaterloo.ca">DAGNIHOTRI@UWATERLOO.CA</a></p>
+      <p class="footer-contact">647-549-2397</p>
+      <p class="footer-copy">2025 GLITTER AND THORN - WATERLOO, ONTARIO</p>
+    </div>
+  </footer>
+
+</body>
+</html>

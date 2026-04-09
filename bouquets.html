@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8">
+  <title>Glitter & Thorn - Bouquets</title>
+  <style>
+
+    /* 1. Global Reset & Box Sizing */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #111111;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 16px; 
+    }
+
+    /* 2. Layout Container */
+    .wrap {
+      width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1, h2, h3, h4, nav a, th, .btn {
+      font-family: "Impact", "Arial Black", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* 3. Header & Oversized Logo */
+    header {
+      padding: 60px 0;
+      text-align: center;
+      border-bottom: 6px solid #111111;
+    }
+
+    header img {
+      height: 400px; 
+      width: auto;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* 4. Navigation */
+    nav {
+      border-bottom: 6px solid #111111;
+      background-color: #111111;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    nav li {
+       display: inline-block;
+    }
+
+    nav a:link, nav a:visited {
+      display: inline-block;
+      padding: 10px 30px;
+      font-size: 1.2em;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    nav a:hover, nav a:active {
+      color: #b01010;
+      background-color: #ffffff;
+    }
+
+    /* 5. Page Head */
+    .page-head {
+      padding: 60px 0;
+      border-bottom: 6px solid #111111;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    .page-head h1 {
+      font-size: 5em;
+      margin: 0 0 20px;
+      color: #111111;
+    }
+
+    .page-head p {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    /* 6. Tier Sections (Horizontal Scroll Layout) */
+    .tier-section {
+      padding: 60px 0;
+      border-bottom: 6px solid #111111;
+    }
+
+    .tier-section h2 {
+      font-size: 1.5em;
+      color: #b01010;
+      margin: 0 0 10px;
+    }
+
+    .tier-section h3 {
+      font-size: 3.5em;
+      margin: 0 0 10px;
+      color: #111111;
+    }
+
+    .tier-note {
+      font-size: 1.2em;
+      font-weight: bold;
+      background-color: #111111;
+      color: #ffffff;
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 0 0 40px;
+    }
+
+    /* The "One Line" Container */
+    .tier-scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 40px;
+      padding-bottom: 20px;
+    }
+
+    .bouquet-card {
+      /* Keeps cards blocky and side-by-side */
+      flex: 0 0 500px;
+      border: 6px solid #111111;
+      background-color: #f4f4f4;
+    }
+
+    .bouquet-card img {
+      display: block;
+      width: 100%;
+      height: 500px;
+      border-bottom: 6px solid #111111;
+    }
+
+    .bouquet-info {
+      padding: 30px;
+    }
+
+    .bouquet-info h4 {
+      font-size: 2.2em;
+      margin: 0 0 15px;
+    }
+
+    .bouquet-info p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      margin: 0 0 20px;
+      min-height: 55px; /* keeps text blocks even */
+    }
+
+    .price-main {
+      font-family: "Impact", "Arial Black", sans-serif;
+      font-size: 2.5em;
+      display: block;
+      margin-bottom: 10px;
+      color: #111111;
+    }
+
+    .price-upgrades {
+       font-size: 1.1em;
+       font-weight: bold;
+       color: #b01010;
+       text-transform: uppercase;
+    }
+
+    /* 7. Brutalist Pricing Table */
+    .price-table {
+      padding: 80px 0;
+      background-color: #111111;
+      color: #ffffff;
+    }
+
+    .price-table h2 {
+      font-size: 1.5em;
+      color: #b01010;
+      margin: 0 0 10px;
+    }
+
+    .price-table h3 {
+      font-size: 3.5em;
+      margin: 0 0 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 6px solid #ffffff;
+      background-color: #222222;
+    }
+
+    th {
+      font-size: 1.5em;
+      padding: 20px;
+      text-align: left;
+      border: 4px solid #ffffff;
+      background-color: #b01010;
+      color: #ffffff;
+    }
+
+    td {
+      padding: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border: 4px solid #ffffff;
+    }
+
+    .td-price {
+      font-family: "Impact", "Arial Black", sans-serif;
+      font-size: 1.5em;
+    }
+
+    .td-red {
+      color: #b01010;
+    }
+
+    /* 8. Footer & Massive Logo */
+    footer {
+      background-color: #111111;
+      color: #ffffff;
+      padding: 80px 0;
+      text-align: center;
+      border-top: 10px solid #b01010;
+    }
+
+    footer img {
+      height: 350px; 
+      margin-bottom: 40px;
+    }
+
+    .footer-links {
+      margin-bottom: 40px;
+    }
+
+    .footer-links a:link, .footer-links a:visited {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 20px;
+      border: 2px solid #ffffff;
+      padding: 10px 20px;
+    }
+
+    .footer-links a:hover, .footer-links a:active {
+      color: #111111;
+      background-color: #b01010;
+      border-color: #b01010;
+    }
+
+    .footer-contact {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+
+    .footer-contact a:link, .footer-contact a:visited {
+      color: #b01010;
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      font-size: 0.9em;
+      color: #666666;
+      margin-top: 50px;
+      text-transform: uppercase;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <img src="images/logo.png" alt="Glitter and Thorn">
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bouquets.html">Bouquets</a></li>
+        <li><a href="addons.html">Add-Ons</a></li>
+        <li><a href="contact.html">Order</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-head">
+    <div class="wrap">
+      <h1>BOUQUETS</h1>
+      <p>All made with premium eternal bridal roses. Choose your size, add glitter, and customize.</p>
+    </div>
+  </div>
+
+  <div class="tier-section">
+    <div class="wrap">
+      <h2>TIER ONE</h2>
+      <h3>STARTER</h3>
+      <div class="tier-note">12 AND 24 ETERNAL ROSES /// GLITTER +$10 /// FRESH FLOWERS +$15</div>
+
+      <div class="tier-scroll-container">
+
+        <div class="bouquet-card">
+          <img src="images/b12.jpg" alt="12 eternal rose bouquet from Glitter and Thorn">
+          <div class="bouquet-info">
+            <h4>12 ROSES</h4>
+            <p>12 eternal glitter roses in pink and white.</p>
+            <span class="price-main">$35</span>
+            <span class="price-upgrades">GLITTER +$10 | FRESH +$15</span>
+          </div>
+        </div>
+
+        <div class="bouquet-card">
+          <img src="images/b24.jpg" alt="24 eternal rose bouquet from Glitter and Thorn">
+          <div class="bouquet-info">
+            <h4>24 ROSES</h4>
+            <p>24 eternal white roses inspired by The Weeknd.</p>
+            <span class="price-main">$65</span>
+            <span class="price-upgrades">GLITTER +$10 | FRESH +$15</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="tier-section">
+    <div class="wrap">
+      <h2>TIER TWO</h2>
+      <h3>STATEMENT</h3>
+      <div class="tier-note">36 AND 48 ETERNAL ROSES /// GLITTER +$15 /// FRESH FLOWERS +$25</div>
+
+      <div class="tier-scroll-container">
+
+        <div class="bouquet-card">
+          <img src="images/b36.jpg" alt="36 eternal rose bouquet from Glitter and Thorn">
+          <div class="bouquet-info">
+            <h4>36 ROSES</h4>
+            <p>36 eternal roses in a full, rounded arrangement.</p>
+            <span class="price-main">$85</span>
+            <span class="price-upgrades">GLITTER +$15 | FRESH +$25</span>
+          </div>
+        </div>
+
+        <div class="bouquet-card">
+          <img src="images/b48.jpg" alt="48 eternal rose bouquet from Glitter and Thorn">
+          <div class="bouquet-info">
+            <h4>48 ROSES</h4>
+            <p>48 eternal roses with designer wrap and satin ribbon.</p>
+            <span class="price-main">$110</span>
+            <span class="price-upgrades">GLITTER +$15 | FRESH +$25</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="tier-section">
+    <div class="wrap">
+      <h2>TIER THREE</h2>
+      <h3>GRAND</h3>
+      <div class="tier-note">72 AND 100 ETERNAL ROSES /// GLITTER +$25 /// FRESH FLOWERS +$55</div>
+
+      <div class="tier-scroll-container">
+
+        <div class="bouquet-card">
+          <img src="images/b72.jpg" alt="72 eternal rose bouquet from Glitter and Thorn">
+          <div class="bouquet-info">
+            <h4>72 ROSES</h4>
+            <p>72 eternal roses - fills both arms when held.</p>
+            <span class="price-main">$140</span>
+            <span class="price-upgrades">GLITTER +$25 | FRESH +$55</span>
+          </div>
+        </div>
+
+        <div class="bouquet-card">
+          <img src="images/b100.jpg" alt="100 eternal rose bouquet from Glitter and Thorn">
+          <div class="bouquet-info">
+            <h4>100 ROSES</h4>
+            <p>100 eternal roses, the largest size we offer.</p>
+            <span class="price-main">$220</span>
+            <span class="price-upgrades">GLITTER +$25 | FRESH +$55</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="price-table">
+    <div class="wrap">
+      <h2>QUICK REFERENCE</h2>
+      <h3>ALL PRICES</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>BOUQUET</th>
+            <th>BASE</th>
+            <th>+ GLITTER</th>
+            <th>+ FRESH FLOWERS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12 ETERNAL ROSES</td>
+            <td class="td-price">$35</td>
+            <td class="td-red">+$10</td>
+            <td>+$15</td>
+          </tr>
+          <tr>
+            <td>24 ETERNAL ROSES</td>
+            <td class="td-price">$65</td>
+            <td class="td-red">+$10</td>
+            <td>+$15</td>
+          </tr>
+          <tr>
+            <td>36 ETERNAL ROSES</td>
+            <td class="td-price">$85</td>
+            <td class="td-red">+$15</td>
+            <td>+$25</td>
+          </tr>
+          <tr>
+            <td>48 ETERNAL ROSES</td>
+            <td class="td-price">$110</td>
+            <td class="td-red">+$15</td>
+            <td>+$25</td>
+          </tr>
+          <tr>
+            <td>72 ETERNAL ROSES</td>
+            <td class="td-price">$140</td>
+            <td class="td-red">+$25</td>
+            <td>+$55</td>
+          </tr>
+          <tr>
+            <td>100 ETERNAL ROSES</td>
+            <td class="td-price">$220</td>
+            <td class="td-red">+$25</td>
+            <td>+$55</td>
+          </tr>
+          <tr>
+            <td>MINI KEYCHAIN BOUQUET</td>
+            <td class="td-price">$15</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <img src="images/logo.png" alt="Glitter and Thorn">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="bouquets.html">Bouquets</a>
+        <a href="addons.html">Add-Ons</a>
+        <a href="contact.html">Order</a>
+      </div>
+      <p class="footer-contact"><a href="https://www.instagram.com/glitter.thorn" target="_blank">@GLITTER.THORN</a></p>
+      <p class="footer-contact"><a href="mailto:dagnihotri@uwaterloo.ca">DAGNIHOTRI@UWATERLOO.CA</a></p>
+      <p class="footer-contact">647-549-2397</p>
+      <p class="footer-copy">2025 GLITTER AND THORN - WATERLOO, ONTARIO</p>
+    </div>
+  </footer>
+
+</body>
+</html>
